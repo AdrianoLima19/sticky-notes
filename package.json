@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "sanitize.css": "^13.0.0",
+    "vite": "^5.2.11"
+  }
+}
