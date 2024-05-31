@@ -7,13 +7,14 @@
 @import "sanitize.css/reduce-motion.css";
 
 :root {
-  /* Colors from TailwindCSS */
+  /* colors from TailwindCSS */
   --neutral-2: #e5e5e5;
   --stone-2: #e7e5e4;
   --zinc-7: #3f3f46;
   --zinc-8: #27272a;
   --zinc-9: #18181b;
 
+  /* Randomly generated colors */
   --pink: #c1b0b5;
   --lime: rgba(176, 196, 177, 0.76);
   --purple: rgba(164, 144, 176, 0.76);
@@ -330,49 +331,49 @@ main ul li .colors-menu .option:active {
   scale: 0.9;
 }
 
-main ul li .colors-menu .option.pink,
+main ul li .colors-menu .option[color="pink"],
 header nav button[color="pink"],
 main ul li[color="pink"] {
   --color: #c1b0b5;
 }
 
-main ul li .colors-menu .option.lime,
+main ul li .colors-menu .option[color="lime"],
 header nav button[color="lime"],
 main ul li[color="lime"] {
   --color: rgba(176, 196, 177, 0.76);
 }
 
-main ul li .colors-menu .option.purple,
+main ul li .colors-menu .option[color="purple"],
 header nav button[color="purple"],
 main ul li[color="purple"] {
   --color: rgba(164, 144, 176, 0.76);
 }
 
-main ul li .colors-menu .option.beige,
+main ul li .colors-menu .option[color="beige"],
 header nav button[color="beige"],
 main ul li[color="beige"] {
   --color: rgba(196, 185, 156, 0.76);
 }
 
-main ul li .colors-menu .option.blue,
+main ul li .colors-menu .option[color="blue"],
 header nav button[color="blue"],
 main ul li[color="blue"] {
   --color: rgba(163, 188, 224, 0.56);
 }
 
-main ul li .colors-menu .option.orange,
+main ul li .colors-menu .option[color="orange"],
 header nav button[color="orange"],
 main ul li[color="orange"] {
   --color: rgba(216, 164, 143, 0.76);
 }
 
-main ul li .colors-menu .option.green,
+main ul li .colors-menu .option[color="green"],
 header nav button[color="green"],
 main ul li[color="green"] {
   --color: rgba(168, 195, 160, 0.56);
 }
 
-main ul li .colors-menu .option.yellow,
+main ul li .colors-menu .option[color="yellow"],
 header nav button[color="yellow"],
 main ul li[color="yellow"] {
   --color: rgba(224, 201, 137, 0.56);
@@ -404,53 +405,56 @@ main ul li[color="yellow"] {
   }
 }
 
-main ul li[show-delete] .delete-menu {
+main ul li[show-delete-menu] .delete-menu {
   display: flex;
   animation: openMenu 200ms forwards;
 }
 
-main ul li[close-delete] .delete-menu {
+main ul li[hide-delete-menu] .delete-menu {
   animation: close-delete-menu 100ms forwards;
 }
 
-main ul li[show-colors] .colors-menu {
+main ul li[show-color-menu] .colors-menu {
   display: grid;
   animation: openMenu 200ms forwards;
 }
 
-main ul li[close-colors] .colors-menu {
+main ul li[hide-color-menu] .colors-menu {
   animation: close-colors-menu 100ms forwards;
 }
 
-main ul li .card-options .update-popup {
+main ul li .card-options #spinner {
   position: absolute;
-  display: none;
   inset: unset;
-  left: 0;
-  line-height: 1;
-  font-size: 0.84rem;
-  padding-block: 0.44em;
-  padding-inline: 0.96em;
-  margin: 0;
-  border-radius: 8px;
-  background-color: rgba(34, 197, 94, 0.76);
-  backdrop-filter: blur(4px);
-}
-main ul li .card-options .update-popup.show {
-  display: inline;
-  animation: update-popup 200ms forwards;
+  left: 0.56rem;
+  display: none;
 }
 
-@keyframes update-popup {
-  0% {
-    transform: translateX(-90%) scale(0.1);
-    opacity: 0;
+main ul li .card-options #spinner svg {
+  animation: spinner 1.56s infinite linear;
+}
+
+main ul li .card-options #spinner svg path {
+  fill: #1e3a8a;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
   }
-  55% {
-    opacity: 0;
+  to {
+    transform: rotate(360deg);
   }
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
+}
+
+main ul li .card-options #updated {
+  position: absolute;
+  inset: unset;
+  left: 0.56rem;
+  scale: 1.4;
+  display: none;
+}
+
+main ul li .card-options #updated svg path {
+  fill: #166534;
 }
